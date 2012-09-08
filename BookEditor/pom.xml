@@ -5,7 +5,20 @@
   <version>0.0.1-SNAPSHOT</version>
   <build>
       <finalName>BookEditor</finalName>
-      <sourceDirectory>${basedir}/src</sourceDirectory>
+      <sourceDirectory>${basedir}/src/main/java/</sourceDirectory>
+
+      <!-- Resources -->
+      <resources>
+          <resource>
+              <targetPath>.</targetPath>
+              <filtering>true</filtering>
+              <directory>${basedir}/src/main/resources/</directory>
+              <includes>
+                  <include>plugin.yml</include>
+                  <include>config.yml</include>
+              </includes>
+          </resource>
+      </resources>
   </build>
   <repositories>
       <!-- Bukkit Repo -->
