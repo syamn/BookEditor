@@ -1,6 +1,6 @@
 ##  Plugin Information  ##
 name: BookEditor
-version: 1.0
+version: 0.1
 main: syam.BookEditor.BookEditor
 description: BookEditor Plugin
 website: http://sakura-server.net/
@@ -13,6 +13,28 @@ commands:
       aliases: [be]
       description: To see the BookEditor help.
 permissions:
-    book.reload:
+    bookeditor.admin:
         default: op
-        description: Allow reload configuration!
+        description: Allow access to all command
+        children:
+            bookeditor.copy: true
+            bookeditor.copy.free: true
+            bookeditor.copy.other: true
+            bookeditor.reload: true
+    bookeditor.user:
+        default: op
+        description: Allow access to user command
+        children:
+            bookeditor.copy: true
+    bookeditor.copy:
+        default: op
+        description: Allow use copy command
+    bookeditor.copy.free:
+        default: op
+        description: Bypass copy command charge
+    bookeditor.copy.other:
+        default: op
+        description: Allow copy other's book
+    bookeditor.reload:
+        default: op
+        description: Allow reload configuration
