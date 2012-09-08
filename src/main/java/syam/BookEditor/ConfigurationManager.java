@@ -27,7 +27,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author syam
  */
 public class ConfigurationManager {
-	// Logger
+    // Logger
 	private static final Logger log = BookEditor.log;
 	private static final String logPrefix = BookEditor.logPrefix;
 	private static final String msgPrefix = BookEditor.msgPrefix;
@@ -94,7 +94,7 @@ public class ConfigurationManager {
 	 * 存在しないディレクトリを作成する
 	 * @param dir File 作成するディレクトリ
 	 */
-	private static void createDir(File dir){
+	private static void createDir(File dir) {
 		// 既に存在すれば作らない
 		if (dir.isDirectory()){
 			return;
