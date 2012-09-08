@@ -89,8 +89,35 @@
                   </archive>
               </configuration>
           </plugin>
+          <!-- Maven Source -->
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>2.2</version>
+              <executions>
+                  <execution>
+                      <id>attach-sources</id>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>jar-no-fork</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+          <!-- Maven Site -->
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-site-plugin</artifactId>
+              <version>3.1</version>
+              <configuration>
+                  <locales>ja</locales>
+                  <inputEncoding>UTF-8</inputEncoding>
+                  <outputEncoding>UTF-8</outputEncoding>
+              </configuration>
+          </plugin>
           <!-- JavaDoc -->
           <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-javadoc-plugin</artifactId>
               <version>2.8.1</version>
               <executions>
@@ -119,9 +146,23 @@
       </resources>
   </build>
 
+  <!-- Reporting -->
+  <reporting>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.8.1</version>
+              <configuration>
+                  <charset>UTF-8</charset>
+              </configuration>
+          </plugin>
+      </plugins>
+  </reporting>
+
   <!-- Repositories -->
   <repositories>
-      <!-- Bukkit  -->
+      <!-- Bukkit -->
       <repository>
           <id>Bukkit Official</id>
           <url>http://repo.bukkit.org/content/groups/public/</url>
@@ -140,7 +181,6 @@
           <groupId>org.bukkit</groupId>
           <artifactId>bukkit</artifactId>
           <version>1.3.2-R0.2-SNAPSHOT</version>
-          <type>jar</type>
           <scope>compile</scope>
       </dependency>
       <!-- CraftBukkit Dependency -->
