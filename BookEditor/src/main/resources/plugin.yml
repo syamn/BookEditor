@@ -1,6 +1,6 @@
 ##  Plugin Information  ##
 name: BookEditor
-version: 0.1
+version: version-number-unknown
 main: syam.BookEditor.BookEditor
 description: BookEditor Plugin
 website: http://sakura-server.net/
