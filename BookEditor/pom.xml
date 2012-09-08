@@ -44,7 +44,7 @@
   <!-- CI -->
   <ciManagement>
       <system>jenkins</system>
-      <url>http://sakura-server.net:8080/</url>
+      <url>http://ci.sakura-server.net:8080/</url>
   </ciManagement>
 
   <!-- Build -->
