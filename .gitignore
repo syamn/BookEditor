@@ -27,4 +27,4 @@
 *.tmp
 /*.gitignore
 lib
-.checkstyle
+.checkstyle/BookEditor

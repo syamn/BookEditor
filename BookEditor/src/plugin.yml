@@ -1,0 +1,18 @@
+##  Plugin Information  ##
+name: BookEditor
+version: 1.0
+main: syam.BookEditor.BookEditor
+description: BookEditor Plugin
+website: http://sakura-server.net/
+depend: [Vault]
+##  Original Author     ##
+author: syam
+commands:
+    book:
+      usage: /book - to see the help
+      aliases: [be]
+      description: To see the BookEditor help.
+permissions:
+    book.reload:
+        default: op
+        description: Allow reload configuration!
