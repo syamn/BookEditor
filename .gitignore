@@ -7,8 +7,8 @@
 /nbproject
 
 # maven
-/build.xml
-/target
+build.xml
+target
 
 # vim
 .*.sw[a-p]
