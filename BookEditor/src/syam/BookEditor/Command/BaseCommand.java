@@ -71,14 +71,16 @@ public abstract class BaseCommand {
 		}
 
 		// 実行
-		return execute();
+		execute();
+
+		return true;
 	}
 
 	/**
 	 * コマンドを実際に実行する
 	 * @return 成功すればtrue それ以外はfalse
 	 */
-	public abstract boolean execute();
+	public abstract void execute();
 
 	/**
 	 * コマンド実行に必要な権限を持っているか検証する

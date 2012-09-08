@@ -20,7 +20,7 @@ public class HelpCommand extends BaseCommand {
 	}
 
 	@Override
-	public boolean execute() {
+	public void execute() {
 		Actions.message(sender, null, "&c===================================");
 		Actions.message(sender, null, "&bBookEditor Plugin version &3%version &bby syamn");
 		Actions.message(sender, null, " &b<>&f = required, &b[]&f = optional");
@@ -33,7 +33,7 @@ public class HelpCommand extends BaseCommand {
 		}
 		Actions.message(sender, null, "&c===================================");
 
-		return true;
+		return;
 	}
 
 	@Override
