@@ -15,10 +15,14 @@ import syam.BookEditor.BookEditor;
  */
 public enum Permission {
 	/* 権限ノード */
-	// コピーコマンド
+
+	// CopyCommand
 	COPY ("copy"),
 	COPY_FREE ("copy.free"),
 	COPY_OTHER ("copy.other"),
+
+	// ReloadCommand
+	RELOAD ("reload"),
 	;
 
 	// ノードヘッダー

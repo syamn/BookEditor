@@ -23,6 +23,7 @@ import syam.BookEditor.Book.BookManager;
 import syam.BookEditor.Command.BaseCommand;
 import syam.BookEditor.Command.CopyCommand;
 import syam.BookEditor.Command.HelpCommand;
+import syam.BookEditor.Command.ReloadCommand;
 /**
  * BookEditor (BookEditor.java)
  * @author syam
@@ -109,6 +110,7 @@ public class BookEditor extends JavaPlugin{
 		commands.add(new CopyCommand());
 
 		// Admin Commands
+		commands.add(new ReloadCommand());
 
 	}
 
