@@ -47,6 +47,7 @@ public class BookEditor extends JavaPlugin{
 	private static BookEditor instance;
 
 	// ** Hookup Plugins **
+	public boolean useVault = false;
 	public static Vault vault = null;
 	public static Economy economy = null;
 
@@ -68,7 +69,9 @@ public class BookEditor extends JavaPlugin{
 		}
 
 		// プラグインフック
-		setupVault(); // Vault
+		if (config.useVault){
+			setupVault();
+		}
 
 		// プラグインを無効にした場合進まないようにする
 		if (!pm.isPluginEnabled(this)){

@@ -42,7 +42,7 @@ public class ConfigurationManager {
 
 	// 設定項目
 	/* Basic Configs */
-	// TODO: stuff..
+	public boolean useVault = true;
 
 	/**
 	 * コンストラクタ
@@ -72,7 +72,7 @@ public class ConfigurationManager {
 		plugin.reloadConfig();
 
 		/* Basic Configs */
-		// TODO: stuff..
+		useVault = plugin.getConfig().getBoolean("UseVault", true);
 	}
 
 	/**
