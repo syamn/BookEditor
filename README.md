@@ -1,0 +1,4 @@
+BookEditor
+==========
+
+CraftBukkit BookEditor Plugin
