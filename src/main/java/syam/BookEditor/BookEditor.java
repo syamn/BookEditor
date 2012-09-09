@@ -27,6 +27,7 @@ import syam.BookEditor.Command.EditCommand;
 import syam.BookEditor.Command.HelpCommand;
 import syam.BookEditor.Command.ReloadCommand;
 import syam.BookEditor.Command.AuthorCommand;
+import syam.BookEditor.Listener.BEServerListener;
 import syam.BookEditor.Util.Metrics;
 /**
  * BookEditor (BookEditor.java)
@@ -39,6 +40,7 @@ public class BookEditor extends JavaPlugin{
 	public final static String msgPrefix = "&6[BookEditor] &f";
 
 	// ** Listener **
+	BEServerListener serverListener = new BEServerListener(this);
 
 	// ** Commands **
 	public static List<BaseCommand> commands = new ArrayList<BaseCommand>();
@@ -82,7 +84,7 @@ public class BookEditor extends JavaPlugin{
 		}
 
 		// Regist Listeners
-		//TODO: pm.registerEvents(playerListener, this);
+		pm.registerEvents(serverListener, this);
 
 		// コマンド登録
 		registerCommands();
