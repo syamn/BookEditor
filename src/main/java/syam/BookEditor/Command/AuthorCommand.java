@@ -14,10 +14,10 @@ import syam.BookEditor.Util.Actions;
  * SetAuthorCommand (SetAuthorCommand.java)
  * @author syam
  */
-public class SetAuthorCommand extends BaseCommand{
-    public SetAuthorCommand(){
+public class AuthorCommand extends BaseCommand{
+    public AuthorCommand(){
         bePlayer = true;
-        name = "copy";
+        name = "author";
         argLength = 1;
         usage = "<author> <- set book author";
         needInHandBookType = Material.WRITTEN_BOOK;
