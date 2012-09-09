@@ -4,6 +4,7 @@
  */
 package syam.BookEditor;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -25,6 +26,7 @@ import syam.BookEditor.Command.CopyCommand;
 import syam.BookEditor.Command.EditCommand;
 import syam.BookEditor.Command.HelpCommand;
 import syam.BookEditor.Command.ReloadCommand;
+import syam.BookEditor.Util.Metrics;
 /**
  * BookEditor (BookEditor.java)
  * @author syam
@@ -90,6 +92,8 @@ public class BookEditor extends JavaPlugin{
 		// メッセージ表示
 		PluginDescriptionFile pdfFile=this.getDescription();
 		log.info("["+pdfFile.getName()+"] version "+pdfFile.getVersion()+" is enabled!");
+
+		setupMetrics(); // mcstats
 	}
 
 	/**
@@ -154,6 +158,19 @@ public class BookEditor extends JavaPlugin{
 	        return false;
 	    }
 	}
+
+	/**
+     * Metricsセットアップ
+     */
+    public void setupMetrics(){
+        try {
+            Metrics metrics = new Metrics(this);
+            metrics.start();
+        } catch (IOException ex) {
+            log.warning(logPrefix+"cant send metrics data!");
+            ex.printStackTrace();
+        }
+    }
 
 	/**
 	 * コマンドが呼ばれた
