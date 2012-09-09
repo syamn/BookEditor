@@ -3,11 +3,6 @@
 # github: https://github.com/syamn/BookEditor
 
 #==================#
-#   Basic Config   #
-#==================#
-# none :3
-
-#==================#
 #   Vault Config   #
 #==================#
 # Hook to Vault for economy integration
@@ -17,3 +12,9 @@ Cost:
   Copy: 100
   Edit: 100
   Title: 100
+
+#==================#
+#   DO NOT TOUCH   #
+#==================#
+# Do not touch this option! It is a check if you are running the recent configuration version
+Version: 0.1
