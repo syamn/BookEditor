@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 import syam.BookEditor.Enum.Permission;
 import syam.BookEditor.Util.Actions;
+import syam.BookEditor.Util.Util;
 
 /**
  * SetAuthorCommand (SetAuthorCommand.java)
@@ -26,7 +27,8 @@ public class AuthorCommand extends BaseCommand{
     @Override
     public void execute() {
         // Edit book
-        handBook.setAuthor(Actions.coloring(args.get(0)));
+        String newAuthor = Actions.coloring(Util.join(args, " "));
+        handBook.setAuthor(newAuthor);
 
         ItemStack newBook = handBook.getItem();
 

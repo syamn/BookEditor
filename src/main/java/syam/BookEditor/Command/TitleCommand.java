@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 import syam.BookEditor.Enum.Permission;
 import syam.BookEditor.Util.Actions;
+import syam.BookEditor.Util.Util;
 
 /**
  * TitleCommand (TitleCommand.java)
@@ -45,7 +46,7 @@ public class TitleCommand extends BaseCommand{
 
         // Get title
         String oldTitle = handBook.getTitle();
-        String newTitle = args.get(0);
+        String newTitle = Util.join(args, " ");
 
         if (Permission.TITLE_COLOR.hasPerm(sender)){
             newTitle = Actions.coloring(newTitle);
