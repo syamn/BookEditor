@@ -5,5 +5,13 @@
 #==================#
 #   Basic Config   #
 #==================#
+# none :3
+
+#==================#
+#   Vault Config   #
+#==================#
 # Hook to Vault for economy integration
-UseVault: true
+UseVault: false
+# Costs
+Cost:
+  Copy: 100

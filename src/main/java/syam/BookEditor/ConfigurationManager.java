@@ -42,7 +42,11 @@ public class ConfigurationManager {
 
 	// 設定項目
 	/* Basic Configs */
-	public boolean useVault = true;
+
+	/* Vault Config */
+	public boolean useVault = false;
+	// Costs
+	public double cost_copy = 100D;
 
 	/**
 	 * コンストラクタ
@@ -72,7 +76,13 @@ public class ConfigurationManager {
 		plugin.reloadConfig();
 
 		/* Basic Configs */
-		useVault = plugin.getConfig().getBoolean("UseVault", true);
+
+		/* Vault Configs */
+		useVault = plugin.getConfig().getBoolean("UseVault", false);
+		if (useVault){
+		    // get costs..
+		    cost_copy = plugin.getConfig().getDouble("Cost.Copy", 100D);
+		}
 	}
 
 	/**

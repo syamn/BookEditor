@@ -15,7 +15,7 @@ commands:
 permissions:
     bookeditor.admin:
         default: op
-        description: Allow access to all command
+        description: Allow access to all commands
         children:
             bookeditor.copy: true
             bookeditor.copy.free: true
@@ -23,7 +23,7 @@ permissions:
             bookeditor.reload: true
     bookeditor.user:
         default: op
-        description: Allow access to user command
+        description: Allow access to user commands
         children:
             bookeditor.copy: true
     bookeditor.copy:

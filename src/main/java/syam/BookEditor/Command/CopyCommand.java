@@ -59,7 +59,7 @@ public class CopyCommand extends BaseCommand{
 
 		// Pay cost
 		boolean paid = false;
-		int cost = 100; // 100 Coins
+		double cost = plugin.getConfigs().cost_copy; // get cost
 
 		if (plugin.getConfigs().useVault && !Permission.COPY_FREE.hasPerm(sender)){
 			paid = Actions.takeMoney(player.getName(), cost);
