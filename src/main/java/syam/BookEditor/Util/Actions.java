@@ -253,7 +253,7 @@ public class Actions {
 	 * @return 文字列
 	 */
 	public static String getCurrencyString(double amount){
-	    return amount + " " + getCurrencyName(amount);
+	    return BookEditor.economy.format(amount);
 	}
 
 	/****************************************/
