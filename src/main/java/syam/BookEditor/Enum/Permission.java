@@ -26,6 +26,9 @@ public enum Permission {
 	EDIT_FREE ("free.edit"),
 	EDIT_OTHER ("other.edit"),
 
+	// SetAuthorCommand
+	SET_AUTHOR ("setauthor"),
+
 	// ReloadCommand
 	RELOAD ("reload"),
 	;

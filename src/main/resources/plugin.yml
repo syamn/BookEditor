@@ -57,6 +57,9 @@ permissions:
     bookeditor.other.edit:
         default: op
         description: Allow edit other's book
+    bookeditor.setauthor:
+        default: op
+        description: Allow set author the book
     bookeditor.reload:
         default: op
         description: Allow reload configuration

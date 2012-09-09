@@ -192,6 +192,15 @@ public class Actions {
 			Actions.message(null, (Player) syamn, msg);
 		}
 	}
+	/**
+	 * 文字列の&(char)をカラーコードに変換して返す
+	 * @param string 文字列
+	 * @return 変換後の文字列
+	 */
+	public static String coloring(String string){
+	    if (string == null) return null;
+	    return string.replaceAll("&([0-9a-fA-Fk-oK-Or])", "\u00A7$1");
+	}
 
 	/****************************************/
 	// 所持金操作系関数 - Vault
