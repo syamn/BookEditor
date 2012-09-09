@@ -48,7 +48,7 @@ public class EditCommand extends BaseCommand{
         if (plugin.getConfigs().useVault && cost > 0 && !Permission.EDIT_FREE.hasPerm(sender)){
             paid = Actions.takeMoney(player.getName(), cost);
             if (!paid){
-                Actions.message(null, player, "&cお金が足りません！ " + cost + " Coin 必要です！");
+                Actions.message(null, player, "&cお金が足りません！ " + Actions.getCurrencyString(cost) + "必要です！");
                 return;
             }
         }
@@ -66,7 +66,7 @@ public class EditCommand extends BaseCommand{
         player.setItemInHand(is);
 
         String msg = "&aタイトル'&6" + title + "&a'の本を未署名に戻しました！";
-        if (paid) msg = msg + " &c(-" + cost + " Coins)";
+        if (paid) msg = msg + " &c(-" + Actions.getCurrencyString(cost) + ")";
         Actions.message(null, player, msg);
 
         return;

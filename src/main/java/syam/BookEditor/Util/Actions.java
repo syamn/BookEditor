@@ -235,6 +235,26 @@ public class Actions {
 	public static boolean checkMoney(String name, double amount){
 		return (BookEditor.economy.has(name, amount));
 	}
+	/**
+	 * 指定した金額での適切な通貨単位を返す
+	 * @param amount 金額
+	 * @return 通貨単位
+	 */
+	public static String getCurrencyName(double amount){
+	    if (amount <= 1.0D){
+	        return BookEditor.economy.currencyNameSingular();
+	    }else{
+	        return BookEditor.economy.currencyNamePlural();
+	    }
+	}
+	/**
+	 * 指定した金額での適切な単位を含めた文字列を返す
+	 * @param amount 金額
+	 * @return 文字列
+	 */
+	public static String getCurrencyString(double amount){
+	    return amount + " " + getCurrencyName(amount);
+	}
 
 	/****************************************/
 	/* ログ操作系 */

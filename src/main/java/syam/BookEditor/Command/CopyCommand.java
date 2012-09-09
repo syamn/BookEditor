@@ -64,7 +64,7 @@ public class CopyCommand extends BaseCommand{
 		if (plugin.getConfigs().useVault && cost > 0 && !Permission.COPY_FREE.hasPerm(sender)){
 			paid = Actions.takeMoney(player.getName(), cost);
 			if (!paid){
-				Actions.message(null, player, "&cお金が足りません！ " + cost + " Coin 必要です！");
+				Actions.message(null, player, "&cお金が足りません！ " + Actions.getCurrencyString(cost) + "必要です！");
 				return;
 			}
 		}
@@ -73,7 +73,7 @@ public class CopyCommand extends BaseCommand{
 		inv.addItem(is.clone());
 
 		String msg = "&aタイトル'&6" + book.getTitle() + "&a'の本をコピーしました！";
-		if (paid) msg = msg + " &c(-" + cost + " Coins)";
+		if (paid) msg = msg + " &c(-" + Actions.getCurrencyString(cost) + ")";
 		Actions.message(null, player, msg);
 
 		return;
