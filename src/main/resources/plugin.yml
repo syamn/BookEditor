@@ -1,10 +1,10 @@
 ##  Plugin Information  ##
 name: BookEditor
-version: version-number-unknown
+version: 0.1
 main: syam.BookEditor.BookEditor
 description: BookEditor Plugin
 website: http://sakura-server.net/
-softdepend: [Vault]
+depend: [Vault]
 ##  Original Author     ##
 author: syam
 commands:
@@ -13,28 +13,50 @@ commands:
       aliases: [be]
       description: To see the BookEditor help.
 permissions:
-    bookeditor.admin:
+    bookeditor.*:
         default: op
-        description: Allow access to all command
+        description: Allow access to all commands
         children:
-            bookeditor.copy: true
-            bookeditor.copy.free: true
-            bookeditor.copy.other: true
+            bookeditor.user.*: true
+            bookeditor.free.*: true
+            bookeditor.other.*: true
             bookeditor.reload: true
-    bookeditor.user:
+    bookeditor.user.*:
         default: op
-        description: Allow access to user command
+        description: Allow access to user commands
         children:
-            bookeditor.copy: true
-    bookeditor.copy:
+            bookeditor.user.copy: true
+            bookeditor.user.edit: true
+    bookeditor.free.*:
+        default: op
+        description: Bypass all charges
+        children:
+            bookeditor.free.copy: true
+            bookeditor.free.edit: true
+    bookeditor.other.*:
+        default: op
+        description: Allow use commands to other's book
+        children:
+            bookeditor.other.copy: true
+            bookeditor.other.edit: true
+    bookeditor.user.copy:
         default: op
         description: Allow use copy command
-    bookeditor.copy.free:
+    bookeditor.free.copy:
         default: op
         description: Bypass copy command charge
-    bookeditor.copy.other:
+    bookeditor.other.copy:
         default: op
         description: Allow copy other's book
+    bookeditor.user.edit:
+        default: op
+        description: Allow use edit command
+    bookeditor.free.edit:
+        default: op
+        description: Bypass edit command charge
+    bookeditor.other.edit:
+        default: op
+        description: Allow edit other's book
     bookeditor.reload:
         default: op
         description: Allow reload configuration

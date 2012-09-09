@@ -17,14 +17,14 @@ public enum Permission {
 	/* 権限ノード */
 
 	// CopyCommand
-	COPY ("copy"),
-	COPY_FREE ("copy.free"),
-	COPY_OTHER ("copy.other"),
+	COPY ("user.copy"),
+	COPY_FREE ("free.copy"),
+	COPY_OTHER ("other.copy"),
 
 	// EditCommand
-	EDIT ("edit"),
-	EDIT_FREE ("edit.free"),
-	EDIT_OTHER ("edit.other"),
+	EDIT ("user.edit"),
+	EDIT_FREE ("free.edit"),
+	EDIT_OTHER ("other.edit"),
 
 	// ReloadCommand
 	RELOAD ("reload"),
