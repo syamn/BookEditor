@@ -15,3 +15,4 @@ UseVault: false
 # Costs
 Cost:
   Copy: 100
+  Edit: 100

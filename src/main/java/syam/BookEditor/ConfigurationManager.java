@@ -47,6 +47,7 @@ public class ConfigurationManager {
 	public boolean useVault = false;
 	// Costs
 	public double cost_copy = 100D;
+	public double cost_edit = 100D;
 
 	/**
 	 * コンストラクタ
@@ -82,6 +83,7 @@ public class ConfigurationManager {
 		if (useVault){
 		    // get costs..
 		    cost_copy = plugin.getConfig().getDouble("Cost.Copy", 100D);
+		    cost_edit = plugin.getConfig().getDouble("Cost.Edit", 100D);
 		}
 	}
 

@@ -61,7 +61,7 @@ public class CopyCommand extends BaseCommand{
 		boolean paid = false;
 		double cost = plugin.getConfigs().cost_copy; // get cost
 
-		if (plugin.getConfigs().useVault && !Permission.COPY_FREE.hasPerm(sender)){
+		if (plugin.getConfigs().useVault && cost > 0 && !Permission.COPY_FREE.hasPerm(sender)){
 			paid = Actions.takeMoney(player.getName(), cost);
 			if (!paid){
 				Actions.message(null, player, "&cお金が足りません！ " + cost + " Coin 必要です！");

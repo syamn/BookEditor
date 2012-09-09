@@ -20,12 +20,16 @@ permissions:
             bookeditor.copy: true
             bookeditor.copy.free: true
             bookeditor.copy.other: true
+            bookeditor.edit: true
+            bookeditor.edit.free: true
+            bookeditor.edit.other: true
             bookeditor.reload: true
     bookeditor.user:
         default: op
         description: Allow access to user commands
         children:
             bookeditor.copy: true
+            bookeditor.edit: true
     bookeditor.copy:
         default: op
         description: Allow use copy command
@@ -35,6 +39,15 @@ permissions:
     bookeditor.copy.other:
         default: op
         description: Allow copy other's book
+    bookeditor.edit:
+        default: op
+        description: Allow use edit command
+    bookeditor.edit.free:
+        default: op
+        description: Bypass edit command charge
+    bookeditor.edit.other:
+        default: op
+        description: Allow edit other's book
     bookeditor.reload:
         default: op
         description: Allow reload configuration

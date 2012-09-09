@@ -21,6 +21,11 @@ public enum Permission {
 	COPY_FREE ("copy.free"),
 	COPY_OTHER ("copy.other"),
 
+	// EditCommand
+	EDIT ("edit"),
+	EDIT_FREE ("edit.free"),
+	EDIT_OTHER ("edit.other"),
+
 	// ReloadCommand
 	RELOAD ("reload"),
 	;

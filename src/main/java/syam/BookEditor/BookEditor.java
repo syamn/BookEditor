@@ -22,6 +22,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import syam.BookEditor.Book.BookManager;
 import syam.BookEditor.Command.BaseCommand;
 import syam.BookEditor.Command.CopyCommand;
+import syam.BookEditor.Command.EditCommand;
 import syam.BookEditor.Command.HelpCommand;
 import syam.BookEditor.Command.ReloadCommand;
 /**
@@ -110,6 +111,7 @@ public class BookEditor extends JavaPlugin{
 
 		// General Commands
 		commands.add(new CopyCommand());
+		commands.add(new EditCommand());
 
 		// Admin Commands
 		commands.add(new ReloadCommand());
