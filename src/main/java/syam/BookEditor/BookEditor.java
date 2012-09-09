@@ -131,7 +131,7 @@ public class BookEditor extends JavaPlugin{
 	/**
 	 * Vaultプラグインにフック
 	 */
-	private boolean setupVault(){
+	public boolean setupVault(){
 		Plugin plugin = this.getServer().getPluginManager().getPlugin("Vault");
 		if(plugin != null & plugin instanceof Vault) {
 			RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
@@ -168,7 +168,7 @@ public class BookEditor extends JavaPlugin{
 	/**
      * Metricsセットアップ
      */
-    public void setupMetrics(){
+    private void setupMetrics(){
         try {
             Metrics metrics = new Metrics(this);
             metrics.start();

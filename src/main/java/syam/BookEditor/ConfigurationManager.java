@@ -32,7 +32,7 @@ public class ConfigurationManager {
 	private static final String logPrefix = BookEditor.logPrefix;
 	private static final String msgPrefix = BookEditor.msgPrefix;
 
-	private JavaPlugin plugin;
+	private BookEditor plugin;
 	private FileConfiguration conf;
 
 	private static File pluginDir = new File("plugins", "BookEditor");
@@ -54,7 +54,7 @@ public class ConfigurationManager {
 	 * コンストラクタ
 	 * @param plugin
 	 */
-	public ConfigurationManager(final JavaPlugin plugin){
+	public ConfigurationManager(final BookEditor plugin){
 		this.plugin = plugin;
 		pluginDir = this.plugin.getDataFolder();
 	}
@@ -86,6 +86,11 @@ public class ConfigurationManager {
 		    cost_copy = plugin.getConfig().getDouble("Cost.Copy", 100D);
 		    cost_edit = plugin.getConfig().getDouble("Cost.Edit", 100D);
 		    cost_title = plugin.getConfig().getDouble("Cost.Title", 100D);
+		}
+
+		// check Vault
+		if (!initialLoad && useVault && (plugin.vault == null || plugin.economy == null)){
+		    plugin.setupVault();
 		}
 	}
 
