@@ -47,7 +47,6 @@ public class BookEditor extends JavaPlugin{
 	private static BookEditor instance;
 
 	// ** Hookup Plugins **
-	public boolean useVault = false;
 	public static Vault vault = null;
 	public static Economy economy = null;
 
@@ -70,7 +69,7 @@ public class BookEditor extends JavaPlugin{
 
 		// プラグインフック
 		if (config.useVault){
-			setupVault();
+			config.useVault = setupVault();
 		}
 
 		// プラグインを無効にした場合進まないようにする
@@ -120,32 +119,37 @@ public class BookEditor extends JavaPlugin{
 	/**
 	 * Vaultプラグインにフック
 	 */
-	private void setupVault(){
+	private boolean setupVault(){
 		Plugin plugin = this.getServer().getPluginManager().getPlugin("Vault");
 		if(plugin != null & plugin instanceof Vault) {
 			RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
 			// 経済概念のプラグインがロードされているかチェック
 			if(economyProvider==null){
-	        	log.warning(logPrefix+"Economy plugin not Fount. Disabling plugin.");
-		        getPluginLoader().disablePlugin(this);
-		        return;
+	        	log.warning(logPrefix+"Economy plugin NOT found. Disabled Vault plugin integration.");
+		        return false;
 			}
 
 			try{
 				vault = (Vault) plugin;
 				economy = economyProvider.getProvider();
+
+				if (vault == null || economy == null){
+				    throw new NullPointerException();
+				}
 			} // 例外チェック
 			catch(Exception e){
-				log.warning(logPrefix+"Could NOT be hook to Vault. Disabling plugin.");
-		        getPluginLoader().disablePlugin(this);
-		        return;
+				log.warning(logPrefix+"Could NOT be hook to Vault plugin. Disabled Vault plugin integration.");
+		        return false;
 			}
-			log.info(logPrefix+"Hooked to Vault!");
-		} else {
+
+			// Success
+			log.info(logPrefix+"Hooked to Vault plugin!");
+			return true;
+		}
+		else {
 			// Vaultが見つからなかった
-	        log.warning(logPrefix+"Vault was NOT found! Disabling plugin.");
-	        getPluginLoader().disablePlugin(this);
-	        return;
+	        log.warning(logPrefix+"Vault plugin was NOT found! Disabled Vault integration.");
+	        return false;
 	    }
 	}
 
