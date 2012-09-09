@@ -16,3 +16,4 @@ UseVault: false
 Cost:
   Copy: 100
   Edit: 100
+  Title: 100

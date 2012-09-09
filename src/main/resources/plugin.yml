@@ -20,6 +20,7 @@ permissions:
             bookeditor.user.*: true
             bookeditor.free.*: true
             bookeditor.other.*: true
+            bookeditor.setauthor: true
             bookeditor.reload: true
     bookeditor.user.*:
         default: op
@@ -27,18 +28,22 @@ permissions:
         children:
             bookeditor.user.copy: true
             bookeditor.user.edit: true
+            bookeditor.user.title: true
+            bookeditor.user.title.color: true
     bookeditor.free.*:
         default: op
         description: Bypass all charges
         children:
             bookeditor.free.copy: true
             bookeditor.free.edit: true
+            bookeditor.free.title: true
     bookeditor.other.*:
         default: op
         description: Allow use commands to other's book
         children:
             bookeditor.other.copy: true
             bookeditor.other.edit: true
+            bookeditor.other.title: true
     bookeditor.user.copy:
         default: op
         description: Allow use copy command
@@ -56,7 +61,19 @@ permissions:
         description: Bypass edit command charge
     bookeditor.other.edit:
         default: op
-        description: Allow edit other's book
+        description: Allow unsign other's book
+    bookeditor.user.title:
+        default: op
+        description: Allow use title command
+    bookeditor.user.title.color:
+        default: op
+        description: Allow use color tag in title
+    bookeditor.free.title:
+        default: op
+        description: Bypass title command charge
+    bookeditor.other.title:
+        default: op
+        description: Allow edit title other's book
     bookeditor.setauthor:
         default: op
         description: Allow set author the book

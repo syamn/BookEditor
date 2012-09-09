@@ -48,6 +48,7 @@ public class ConfigurationManager {
 	// Costs
 	public double cost_copy = 100D;
 	public double cost_edit = 100D;
+	public double cost_title = 100D;
 
 	/**
 	 * コンストラクタ
@@ -84,6 +85,7 @@ public class ConfigurationManager {
 		    // get costs..
 		    cost_copy = plugin.getConfig().getDouble("Cost.Copy", 100D);
 		    cost_edit = plugin.getConfig().getDouble("Cost.Edit", 100D);
+		    cost_title = plugin.getConfig().getDouble("Cost.Title", 100D);
 		}
 	}
 

@@ -26,7 +26,13 @@ public enum Permission {
 	EDIT_FREE ("free.edit"),
 	EDIT_OTHER ("other.edit"),
 
-	// SetAuthorCommand
+	// TitleCommand
+	TITLE ("user.title"),
+	TITLE_COLOR ("user.title.color"),
+	TITLE_FREE ("free.title"),
+	TITLE_OTHER ("other.title"),
+
+	// AuthorCommand
 	SET_AUTHOR ("setauthor"),
 
 	// ReloadCommand

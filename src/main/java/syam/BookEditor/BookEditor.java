@@ -27,6 +27,7 @@ import syam.BookEditor.Command.EditCommand;
 import syam.BookEditor.Command.HelpCommand;
 import syam.BookEditor.Command.ReloadCommand;
 import syam.BookEditor.Command.AuthorCommand;
+import syam.BookEditor.Command.TitleCommand;
 import syam.BookEditor.Listener.BEServerListener;
 import syam.BookEditor.Util.Metrics;
 /**
@@ -119,6 +120,7 @@ public class BookEditor extends JavaPlugin{
 		// General Commands
 		commands.add(new CopyCommand());
 		commands.add(new EditCommand());
+		commands.add(new TitleCommand());
 
 		// Admin Commands
 		commands.add(new AuthorCommand());
