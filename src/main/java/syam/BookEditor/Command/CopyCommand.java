@@ -25,26 +25,13 @@ public class CopyCommand extends BaseCommand{
 		name = "copy";
 		argLength = 0;
 		usage = "<- copy your book";
+		needInHandBookType = Material.WRITTEN_BOOK;
 	}
 
 	@Override
 	public void execute() {
-		ItemStack is = player.getItemInHand();
-
-		// Check inHand item
-		if (is.getType() == Material.BOOK_AND_QUILL){
-			Actions.message(null, player, "&cコピーするためには本に署名する必要があります！");
-			return;
-		}
-		else if (is.getType() != Material.WRITTEN_BOOK){
-			Actions.message(null, player, "&c持っているアイテムが署名済みの本ではありません！");
-			return;
-		}
-
 		// Check Author
-		Book book = new Book(is);
-
-		if (!player.getName().equalsIgnoreCase(book.getAuthor()) && !Permission.COPY_OTHER.hasPerm(player)){
+		if (!player.getName().equalsIgnoreCase(handBook.getAuthor()) && !Permission.COPY_OTHER.hasPerm(player)){
 			Actions.message(null, player, "&cそれはあなたが書いた本ではありません！");
 			return;
 		}
@@ -70,9 +57,9 @@ public class CopyCommand extends BaseCommand{
 		}
 
 		// Copy
-		inv.addItem(is.clone());
+		inv.addItem(player.getItemInHand().clone());
 
-		String msg = "&aタイトル'&6" + book.getTitle() + "&a'の本をコピーしました！";
+		String msg = "&aタイトル'&6" + handBook.getTitle() + "&a'の本をコピーしました！";
 		if (paid) msg = msg + " &c(-" + Actions.getCurrencyString(cost) + ")";
 		Actions.message(null, player, msg);
 

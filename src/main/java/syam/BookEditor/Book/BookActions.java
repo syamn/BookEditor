@@ -27,7 +27,7 @@ public class BookActions {
 	public static String getAuthor(CraftItemStack item){
 		NBTTagCompound tag = item.getHandle().getTag();
 		if(tag == null) return null;
-		return item.getHandle().getTag().getString("author");
+	return item.getHandle().getTag().getString("author");
 	}
 	/**
 	 * 本の著者を設定する

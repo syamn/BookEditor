@@ -21,22 +21,13 @@ public class EditCommand extends BaseCommand{
         name = "edit";
         argLength = 0;
         usage = "<- unsign your book";
+        needInHandBookType = Material.WRITTEN_BOOK;
     }
 
     @Override
     public void execute() {
-        ItemStack is = player.getItemInHand();
-
-        // Check inHand item
-        if (is.getType() != Material.WRITTEN_BOOK){
-            Actions.message(null, player, "&c持っているアイテムが署名済みの本ではありません！");
-            return;
-        }
-
         // Check Author
-        Book book = new Book(is);
-
-        if (!player.getName().equalsIgnoreCase(book.getAuthor()) && !Permission.EDIT_OTHER.hasPerm(player)){
+        if (!player.getName().equalsIgnoreCase(handBook.getAuthor()) && !Permission.EDIT_OTHER.hasPerm(player)){
             Actions.message(null, player, "&cそれはあなたが書いた本ではありません！");
             return;
         }
@@ -53,17 +44,17 @@ public class EditCommand extends BaseCommand{
             }
         }
 
-        String title = book.getTitle();
+        String title = handBook.getTitle();
 
         // Remove sign
-        book.setAuthor("");
-        book.setTitle("");
+        handBook.setAuthor("");
+        handBook.setTitle("");
 
-        is = book.getItem();
-        is.setType(Material.BOOK_AND_QUILL);
+        ItemStack newBook = handBook.getItem();
+        newBook.setType(Material.BOOK_AND_QUILL);
 
         // Set
-        player.setItemInHand(is);
+        player.setItemInHand(newBook);
 
         String msg = "&aタイトル'&6" + title + "&a'の本を未署名に戻しました！";
         if (paid) msg = msg + " &c(-" + Actions.getCurrencyString(cost) + ")";
