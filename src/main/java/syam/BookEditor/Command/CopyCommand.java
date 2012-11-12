@@ -31,23 +31,23 @@ public class CopyCommand extends BaseCommand{
 
 	@Override
 	public void execute() {
-                int quantity=1; // Number of the books to copy
-            
-                // Check arguments
-                if (args.size()>0){
-                        if(!Util.isInteger(args.get(0))){
-                            Actions.message(null, player, "&c数量は整数で指定してください！");
-                            return;
-                        }else{
-                            quantity = Integer.parseInt(args.get(0));
-                        }
-                }
-                
-                // Check if quantity is positive
-                if (quantity < 1){
-                            Actions.message(null, player, "&c数量は自然数で指定してください！");
-                            return;
-                }
+        int quantity=1; // Number of the books to copy
+    
+        // Check arguments
+        if (args.size()>0){
+            if(!Util.isInteger(args.get(0))){
+                Actions.message(null, player, "&c数量は整数で指定してください！");
+                return;
+            }else{
+                quantity = Integer.parseInt(args.get(0));
+            }
+        }
+        
+        // Check if quantity is positive
+        if (quantity < 1){
+            Actions.message(null, player, "&c数量は自然数で指定してください！");
+            return;
+        }
                 
 		// Check Author
 		if (!player.getName().equalsIgnoreCase(handBook.getAuthor()) && !Permission.COPY_OTHER.hasPerm(player)){
@@ -76,9 +76,9 @@ public class CopyCommand extends BaseCommand{
 		}
 
 		// Copy
-                for(int i=quantity;i>0;i--){
-                    inv.addItem(player.getItemInHand().clone());
-                }
+        for(int i=quantity;i>0;i--){
+            inv.addItem(player.getItemInHand().clone());
+        }
                 
 		String msg = "&aタイトル'&6" + handBook.getTitle() + "&a'の本を" + quantity + "冊コピーしました！";
 		if (paid) msg = msg + " &c(-" + Actions.getCurrencyString(cost) + ")";
