@@ -7,6 +7,9 @@ package syam.BookEditor.Util;
 import java.util.Collection;
 import java.util.Iterator;
 
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
 /**
  * Util (Util.java)
  * @author syam
@@ -75,5 +78,22 @@ public class Util {
             return fileName.substring(point + 1);
         }
         return fileName;
+    }
+    
+    /**
+     * インベントリ内にある空スロットの総数を返します
+     * @param inv インベントリ
+     * @return 空スロットの総数
+     */
+    public static int getEmptySlotNum(Inventory inv){
+        Iterator<ItemStack> iter = inv.iterator();
+        int i=0;
+        
+        while(iter.hasNext()){
+            if(iter.next()==null){
+                i++;
+            }
+        }
+        return i;
     }
 }

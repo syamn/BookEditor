@@ -14,6 +14,7 @@ import syam.BookEditor.Book.Book;
 import syam.BookEditor.Book.BookActions;
 import syam.BookEditor.Enum.Permission;
 import syam.BookEditor.Util.Actions;
+import syam.BookEditor.Util.Util;
 
 /**
  * CopyCommand (CopyCommand.java)
@@ -24,12 +25,30 @@ public class CopyCommand extends BaseCommand{
 		bePlayer = true;
 		name = "copy";
 		argLength = 0;
-		usage = "<- copy your book";
+		usage = "([quantity]) <- copy your book";
 		needInHandBookType = Material.WRITTEN_BOOK;
 	}
 
 	@Override
 	public void execute() {
+                int quantity=1; // Number of the books to copy
+            
+                // Check arguments
+                if (args.size()>0){
+                        if(!Util.isInteger(args.get(0))){
+                            Actions.message(null, player, "&c数量は整数で指定してください！");
+                            return;
+                        }else{
+                            quantity = Integer.parseInt(args.get(0));
+                        }
+                }
+                
+                // Check if quantity is positive
+                if (quantity < 1){
+                            Actions.message(null, player, "&c数量は自然数で指定してください！");
+                            return;
+                }
+                
 		// Check Author
 		if (!player.getName().equalsIgnoreCase(handBook.getAuthor()) && !Permission.COPY_OTHER.hasPerm(player)){
 			Actions.message(null, player, "&cそれはあなたが書いた本ではありません！");
@@ -39,14 +58,14 @@ public class CopyCommand extends BaseCommand{
 		// Check empty slot
 		PlayerInventory inv = player.getInventory();
 
-		if (inv.firstEmpty() < 0){
-			Actions.message(null, player, "&cインベントリがいっぱいです！");
+		if (Util.getEmptySlotNum(inv)<quantity){
+			Actions.message(null, player, "&cインベントリの空きが足りません！");
 			return;
 		}
 
 		// Pay cost
 		boolean paid = false;
-		double cost = plugin.getConfigs().cost_copy; // get cost
+		double cost = plugin.getConfigs().cost_copy * (double)quantity; // get cost
 
 		if (plugin.getConfigs().useVault && cost > 0 && !Permission.COPY_FREE.hasPerm(sender)){
 			paid = Actions.takeMoney(player.getName(), cost);
@@ -57,9 +76,11 @@ public class CopyCommand extends BaseCommand{
 		}
 
 		// Copy
-		inv.addItem(player.getItemInHand().clone());
-
-		String msg = "&aタイトル'&6" + handBook.getTitle() + "&a'の本をコピーしました！";
+                for(int i=quantity;i>0;i--){
+                    inv.addItem(player.getItemInHand().clone());
+                }
+                
+		String msg = "&aタイトル'&6" + handBook.getTitle() + "&a'の本を" + quantity + "冊コピーしました！";
 		if (paid) msg = msg + " &c(-" + Actions.getCurrencyString(cost) + ")";
 		Actions.message(null, player, msg);
 
