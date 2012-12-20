@@ -7,7 +7,6 @@ package syam.BookEditor.Command;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import syam.BookEditor.Book.Book;
 import syam.BookEditor.Enum.Permission;
 import syam.BookEditor.Util.Actions;
 

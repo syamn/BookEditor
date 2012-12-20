@@ -180,21 +180,21 @@
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>bukkit</artifactId>
-          <version>1.4.5-R0.3-SNAPSHOT</version>
+          <version>1.4.6-R0.1-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
       <!-- CraftBukkit Dependency -->
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>craftbukkit</artifactId>
-          <version>1.4.5-R0.3-SNAPSHOT</version>
+          <version>1.4.6-R0.1-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
       <!-- Vault Dependency -->
       <dependency>
           <groupId>net.milkbowl.vault</groupId>
           <artifactId>Vault</artifactId>
-          <version>1.2.21-SNAPSHOT</version>
+          <version>1.2.22-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
   </dependencies>

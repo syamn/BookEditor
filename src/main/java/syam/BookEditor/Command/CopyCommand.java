@@ -5,13 +5,8 @@
 package syam.BookEditor.Command;
 
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-import syam.BookEditor.BookEditor;
-import syam.BookEditor.Book.Book;
-import syam.BookEditor.Book.BookActions;
 import syam.BookEditor.Enum.Permission;
 import syam.BookEditor.Util.Actions;
 import syam.BookEditor.Util.Util;
@@ -31,7 +26,7 @@ public class CopyCommand extends BaseCommand{
 
 	@Override
 	public void execute() {
-        int quantity=1; // Number of the books to copy
+        int quantity = 1; // Number of the books to copy
     
         // Check arguments
         if (args.size()>0){
@@ -58,14 +53,14 @@ public class CopyCommand extends BaseCommand{
 		// Check empty slot
 		PlayerInventory inv = player.getInventory();
 
-		if (Util.getEmptySlotNum(inv)<quantity){
+		if (Util.getEmptySlotNum(inv) < quantity){
 			Actions.message(null, player, "&cインベントリの空きが足りません！");
 			return;
 		}
 
 		// Pay cost
 		boolean paid = false;
-		double cost = plugin.getConfigs().cost_copy * (double)quantity; // get cost
+		double cost = plugin.getConfigs().cost_copy * (double) quantity; // get cost
 
 		if (plugin.getConfigs().useVault && cost > 0 && !Permission.COPY_FREE.hasPerm(sender)){
 			paid = Actions.takeMoney(player.getName(), cost);
@@ -76,7 +71,7 @@ public class CopyCommand extends BaseCommand{
 		}
 
 		// Copy
-        for(int i=quantity;i>0;i--){
+        for(int i = quantity; i > 0; i--){
             inv.addItem(player.getItemInHand().clone());
         }
                 

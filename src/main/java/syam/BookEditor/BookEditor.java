@@ -20,7 +20,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import syam.BookEditor.Book.BookManager;
 import syam.BookEditor.Command.BaseCommand;
 import syam.BookEditor.Command.CopyCommand;
 import syam.BookEditor.Command.EditCommand;
@@ -48,7 +47,6 @@ public class BookEditor extends JavaPlugin{
 
 	// ** Private Classes **
 	private ConfigurationManager config;
-	private BookManager bm;
 
 	// ** Instance **
 	private static BookEditor instance;
@@ -208,14 +206,6 @@ public class BookEditor extends JavaPlugin{
 	}
 
 	/* getter */
-
-	/**
-	 * ゲームマネージャを返す
-	 * @return GameManager
-	 */
-	public BookManager getManager(){
-		return bm;
-	}
 
 	/**
 	 * 設定マネージャを返す
