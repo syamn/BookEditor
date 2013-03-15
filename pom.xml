@@ -44,7 +44,7 @@
   <!-- CI -->
   <ciManagement>
       <system>jenkins</system>
-      <url>http://ci.sakura-server.net:8080/</url>
+      <url>http://ci.sakura-server.net/</url>
   </ciManagement>
 
   <!-- Build -->
@@ -180,14 +180,14 @@
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>bukkit</artifactId>
-          <version>1.4.7-R0.2-SNAPSHOT</version>
+          <version>1.5-R0.1-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
       <!-- CraftBukkit Dependency -->
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>craftbukkit</artifactId>
-          <version>1.4.7-R0.2-SNAPSHOT</version>
+          <version>1.5-R0.1-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
       <!-- Vault Dependency -->
